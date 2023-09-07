@@ -19,23 +19,16 @@ public abstract class GameEvent {
         return theTeam;
     }
 
-    /**
-     * @param theTeam the theTeam to set
-     */
+  
     public void setTheTeam(Team theTeam) {
         this.theTeam = theTeam;
     }
 
-    /**
-     * @return the thePlayer
-     */
     public Player getThePlayer() {
         return thePlayer;
     }
 
-    /**
-     * @param thePlayer the thePlayer to set
-     */
+    
     public void setThePlayer(Player thePlayer) {
         this.thePlayer = thePlayer;
     }
