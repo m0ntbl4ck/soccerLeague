@@ -8,6 +8,32 @@ package soccer.event;
  *
  * @author mont_
  */
-public class Shoot {
+public class Shoot extends GameEvent {
+    public Shoot(){
+    }
+
+    @Override
+    public String toString() {
+        return "Disparo al arco ";
+    }
     
+    @Override
+    public GameEvent[] getNextEvents() {
+       GameEvent theEvent[] = {new Goal(), new Kickout()};
+       return theEvent;
+    }
+
+    @Override
+    public boolean changePlayer() {
+        return false;
+    }
+
+    @Override
+    public boolean changeTeam() {
+       return false;
+    }
+    
+    public void setBallPos(int currBallPos){
+        super.ballPos = currBallPos;
+    }
 }

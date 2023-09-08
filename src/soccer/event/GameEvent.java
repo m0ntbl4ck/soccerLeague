@@ -42,7 +42,11 @@ public abstract class GameEvent {
     public void setTheTime(double theTime) {
         this.theTime = theTime;
     }
-
+    /**
+     * ESTE METODO DEVUELVE UN ARAY DE POSIBLES EVENTOS SIGUIENTES
+     * @param theEvent esto es un array
+     * @return UN ARRAY DE EVENTOS
+     */
     public abstract GameEvent[] getNextEvents();
 
     public abstract boolean changePlayer();

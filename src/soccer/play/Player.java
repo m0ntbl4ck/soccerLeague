@@ -14,7 +14,7 @@ public class Player implements Comparable {
     public Player(){}
     
     public Player(String playerName) {
-        setPlayerName(playerName);
+        this.playerName = playerName;
     }
     
     /**
