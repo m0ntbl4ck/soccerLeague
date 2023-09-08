@@ -45,6 +45,46 @@ public class Game implements IDisplayDataItem  {
         
         
     }
+
+    public Team getHomeTeam() {
+        return homeTeam;
+    }
+
+    public void setHomeTeam(Team homeTeam) {
+        this.homeTeam = homeTeam;
+    }
+
+    public Team getAwayTeam() {
+        return awayTeam;
+    }
+
+    public void setAwayTeam(Team awayTeam) {
+        this.awayTeam = awayTeam;
+    }
+
+    public GameEvent[] getEvents() {
+        return events;
+    }
+
+    public void setEvents(GameEvent[] events) {
+        this.events = events;
+    }
+
+    public LocalDateTime getTheDataTime() {
+        return theDataTime;
+    }
+
+    public void setTheDataTime(LocalDateTime theDataTime) {
+        this.theDataTime = theDataTime;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
     @Override
     public boolean isDetailAvailable() {
