@@ -34,7 +34,7 @@ public class Team implements Comparable, IDisplayDataItem {
         this.setGoalsTotal(this.getGoalsTotal() + goals);
     }
     
-    public void incPonitsTotal(int points){
+    public void incPointsTotal(int points){
         this.pointsTotal += points;
     }
 
@@ -125,7 +125,7 @@ public class Team implements Comparable, IDisplayDataItem {
         this.id = id;
     }
     
-    public GameEvent getNetxPlayAttempt(GameEvent currEvent){
+    public GameEvent getNextPlayAttempt(GameEvent currEvent){
         
         GameEvent[] possEvents = currEvent.getNextEvents();
         currEvent = possEvents[(int)(Math.random()*(possEvents.length))];

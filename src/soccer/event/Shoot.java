@@ -33,6 +33,7 @@ public class Shoot extends GameEvent {
        return false;
     }
     
+    @Override
     public void setBallPos(int currBallPos){
         super.ballPos = currBallPos;
     }

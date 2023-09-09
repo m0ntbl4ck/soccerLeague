@@ -2,6 +2,7 @@
 package soccer.play;
 
 import soccer.event.GameEvent;
+import soccer.event.Goal;
 
 /**
  *
@@ -39,10 +40,13 @@ public class GameResult {
     }
     private void getScore(Game currGame){
         for(GameEvent currEvent: currGame.getEvents()){
+            if(currEvent instanceof Goal){
             if(currEvent.getTheTeam() == currGame.getHomeTeam()){
                 this.homeTeamGoals++;
             } else{
                 this.awayTeamGoals++;
+            }
+            
             }
         }
     }
@@ -53,33 +57,25 @@ public class GameResult {
         return winner;
     }
 
-    public void setWinner(Team winner) {
-        this.winner = winner;
-    }
+   
 
     public int getHomeTeamGoals() {
         return homeTeamGoals;
     }
 
-    public void setHomeTeamGoals(int homeTeamGoals) {
-        this.homeTeamGoals = homeTeamGoals;
-    }
+   
 
     public int getAwayTeamGoals() {
         return awayTeamGoals;
     }
 
-    public void setAwayTeamGoals(int awayTeamGoals) {
-        this.awayTeamGoals = awayTeamGoals;
-    }
+    
 
     public boolean isIsDrawn() {
         return isDrawn;
     }
 
-    public void setIsDrawn(boolean isDrawn) {
-        this.isDrawn = isDrawn;
-    }
+   
    
    
    

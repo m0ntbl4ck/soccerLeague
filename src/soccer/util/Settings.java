@@ -14,7 +14,7 @@ public class Settings {
     
     static public final int DRAWN_GAME_POINTS = 1;
     static public final int WINNER_GAME_POINTS = 3;
-    static public final int LOSER_GAME_POINTS = 0;
+   
     
     static public final int PITCH_LENGTH = 100;
 }

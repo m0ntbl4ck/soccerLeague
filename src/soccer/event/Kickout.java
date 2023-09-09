@@ -12,7 +12,7 @@ public class Kickout extends GameEvent{
 
     @Override
     public String toString() {
-        return "Salvados. El balon sale por Fuera ";
+        return "Salvados. Saque de puerta ";
     }
     
     
@@ -32,7 +32,8 @@ public class Kickout extends GameEvent{
        return true;
     }
     
-    public void setBalPos(int ballPos){
+    @Override
+    public void setBallPos(int ballPos){
         super.ballPos = 95;
     }
 }

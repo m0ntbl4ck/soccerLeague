@@ -32,6 +32,7 @@ public class Kickoff extends GameEvent {
         return true;
     }
     
+    @Override
     public void setBallPos(int ballPos){
         super.ballPos =50;
     }

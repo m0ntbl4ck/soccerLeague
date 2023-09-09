@@ -34,7 +34,8 @@ public class Goal extends GameEvent{
        return false;
     }
     
-    public void seBallPOS(int ballPos){
+    @Override
+    public void setBallPos(int ballPos){
         super.ballPos = 100;
     }
 }
