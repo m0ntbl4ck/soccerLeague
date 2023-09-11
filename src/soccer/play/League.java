@@ -40,6 +40,10 @@ public class League {
                 System.out.println(currGame.getDescription(true));
             }
             theLeague.setTeamStats(theTeams, theGames);
+            theLeague.setPlayerStats(theGames);
+            //Mostrar lisatdo mejores jugadores de la liga
+            theLeague.showBestPlayersByLeague(theTeams);
+            //Mostrar lisatdo mejores equipos de la liga
             theLeague.showBestTeam(theTeams);
             
             IDisplayDataItem[][] dataGrid = theLeague.getLeagueDataGrid(theGames, theTeams);
@@ -100,7 +104,7 @@ public class League {
             else{ 
                 theResult.getWinner().incPointsTotal(Settings.WINNER_GAME_POINTS);
             }   
-           
+            
             theResult.getHomeTeam().incGoalsTotal(theResult.getHomeTeamGoals());
             theResult.getAwayTeam().incGoalsTotal(theResult.getAwayTeamGoals());
             }
@@ -112,7 +116,7 @@ public class League {
         Arrays.sort(theTeams);
         //eeuqipo 20, euqiupo 12, 
         Team currBestTeam = theTeams[0];
-        System.out.println("\nResultados de la Liga");
+        System.out.println("\n\nResultados de la Liga");
       
        // equipo1 : 13 : 6;
        
@@ -120,7 +124,8 @@ public class League {
             System.out.println(currTeam.getTeamName() +" : "+ currTeam.getPointsTotal()+ " : "
             + currTeam.getGoalsTotal());
     }
-        System.out.println("El ganador de la Liga es: "+ currBestTeam.getTeamName());
+        System.out.println("\nEl ganador de la Liga es: "+ currBestTeam.getTeamName());
+        System.out.println("\n");
     }
     
     public String getLeagueAnnouncement (Game[] theGames){
@@ -151,7 +156,7 @@ public class League {
         
         Collections.sort(thePlayers, (p1,p2)-> Double.valueOf(p2.getGoalsScored()).compareTo(Double.valueOf(p1.getGoalsScored())));
         
-        System.out.println("\n\n El mejor jugador de la Liga");
+        System.out.println("\n\nGoleadores de la Liga");
         for(Player currPlayer: thePlayers){
             System.out.println(currPlayer.getPlayerName() + " : "+ currPlayer.getGoalsScored()); 
         }
@@ -166,11 +171,10 @@ public class League {
             System.out.println(currPlayer.getPlayerName() + " : "+ currPlayer.getGoalsScored()); 
         }
         }
-  
-       
+
     }
     
-    public IDisplayDataItem[][] getLeagueDataGrid(Game[] theGames, Team[] theTeams){
+     public IDisplayDataItem[][] getLeagueDataGrid(Game[] theGames, Team[] theTeams){
         int numTeams = theTeams.length;
         
         IDisplayDataItem[][] theGrid = new IDisplayDataItem[numTeams + 1][numTeams+3];
@@ -204,20 +208,19 @@ public class League {
                        if(theGame.getHomeTeam() == currHomeTeam && theGame.getAwayTeam() == currAwayTeam){
                            theGrid[rowNum][colNum] = theGame;
                            break;
-                       }
-                           
+                       }    
                        }
                    }else{
-                               theGrid[rowNum][colNum] = new DisplayString(" X ");
-                               }
+                     theGrid[rowNum][colNum] = new DisplayString(" X ");
+                }
            }
             theGrid[rowNum][colNum + 1 ]= new DisplayString(new Integer(currHomeTeam.getPointsTotal()).toString());
             theGrid[rowNum][colNum + 2 ] = new DisplayString(new Integer(currHomeTeam.getGoalsTotal()).toString());
-        }
+        } 
         return theGrid;
     }
-    
-    public void outputTextLeagueGrid(IDisplayDataItem[][] dataGrid){
+     
+     public void outputTextLeagueGrid(IDisplayDataItem[][] dataGrid){
         
         int[] stringLength = new int [dataGrid[0].length];
         int totalLength = 0;
@@ -240,16 +243,17 @@ public class League {
         
         for(IDisplayDataItem[] theRow : dataGrid){
             for (int j = 0; j < theRow.length; j++) {
-                int extraChars = stringLength[j] = theRow[j].getDisplayDetail().length();
-                System.out.println("| "+theRow[j].getDisplayDetail()+ new String(new char[extraChars]).replace("\0", " ")+" ");
+                int extraChars = stringLength[j] -  theRow[j].getDisplayDetail().length();
+                System.out.print("| "+theRow[j].getDisplayDetail()+ new String(new char[extraChars]).replace("\0", " ")+ " ");
                 
             }
             
-            System.out.println("|");
+            System.out.print("|");
             System.out.println();
             System.out.println(separatorLine);
         }
     }
+     
     
     public void simpleDisplay(IDisplayDataItem[][] dataGrid){
         for(IDisplayDataItem[] theRow: dataGrid){
@@ -260,8 +264,12 @@ public class League {
                     
         }
     }
-    }
+
+}
     
     
     
+     
+    
+
 

@@ -108,7 +108,7 @@ public class Game implements IDisplayDataItem  {
             returnString.append("Empate!");
         }else{
             returnString.append((theResult.getWinner().getTeamName()));
-            returnString.append("Gana!");
+            returnString.append(" Gana!");
         }
         returnString.append(" ("+theResult.getHomeTeamGoals()+" - "+theResult.getAwayTeamGoals()+") \n");
         

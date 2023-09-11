@@ -7,10 +7,10 @@ package soccer.play;
  */
 public class DisplayString implements IDisplayDataItem{
 
-    public DisplayString(String displayDetail) {
-        this.displayDetail= displayDetail;
+    public DisplayString(String displayString) {
+        this.displayDetail= displayString;
     }
-    
+   
     String displayDetail;
     int id =0;
     
@@ -36,7 +36,7 @@ public class DisplayString implements IDisplayDataItem{
     }
 
     public void setDisplayDetail(String displayDetail) {
-        this.displayDetail = displayDetail;
+        this.displayDetail = displayDetail;                                                                      
     }
     
 }
